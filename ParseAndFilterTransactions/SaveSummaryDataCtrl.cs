@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml.Linq;
 
 namespace ParseAndFilterTransactions
 {
@@ -16,7 +17,7 @@ namespace ParseAndFilterTransactions
         public SaveSummaryDataCtrl()
         {
             InitializeComponent();
-            textBox_Path.Text = @"C:\Users\HomeUser\Documents\Financial\Transactions\";
+            textBox_Path.Text = @"C:\Users\israe\Documents\Financial\Transactions\SUMMARY\";
             ParseTransactions.OnChanged += ParseTransactions_OnChanged;
         }
 

@@ -10,6 +10,7 @@ namespace ParseAndFilterTransactions
     {
         CapitolOne360_Rev0,
         CapitolOne360_Rev1, // some times before 8/29/2020
+        CapitolOne360_Rev2,
         QuickSilver_Rev0,
         QuickSilver_Rev1, // some times before 8/29/2020
         BankOfAmerica
@@ -19,7 +20,8 @@ namespace ParseAndFilterTransactions
     {
         Food,
         Utility,
-        Gas
+        Gas,
+        Amazon
     }
 
     public class DataColumnIndices
@@ -29,6 +31,7 @@ namespace ParseAndFilterTransactions
             Format = new Dictionary<DataFormat, DataColumnIndices>();
             Format.Add(DataFormat.CapitolOne360_Rev0, new DataColumnIndices(dateColumnIndex: 7, descriptionColumnIndex: 10, valueColumnIndex: 8));
             Format.Add(DataFormat.CapitolOne360_Rev1, new DataColumnIndices(dateColumnIndex: 1, descriptionColumnIndex: 4, valueColumnIndex: 2));
+            Format.Add(DataFormat.CapitolOne360_Rev2, new DataColumnIndices(dateColumnIndex: 2, descriptionColumnIndex: 1, valueColumnIndex: 5));
             Format.Add(DataFormat.BankOfAmerica, new DataColumnIndices(dateColumnIndex: 0, descriptionColumnIndex: 2, valueColumnIndex: 4));
             Format.Add(DataFormat.QuickSilver_Rev0, new DataColumnIndices(dateColumnIndex: 1, descriptionColumnIndex: 4, debitColumnIndex: 6, creditColumnIndex: 7));
             Format.Add(DataFormat.QuickSilver_Rev1, new DataColumnIndices(dateColumnIndex: 0, descriptionColumnIndex: 3, debitColumnIndex: 5, creditColumnIndex: 6));

@@ -12,17 +12,13 @@ namespace ParseAndFilterTransactions
 {
     public partial class FilterTranxCtrl : UserControl
     {
-        List<string> FoodFilterList;
-        List<string> GasList;
-        List<string> UtilityList;
-        List<string> AmazonList;
+        Dictionary<FilterGroup, List<string>> GroupFilters;
 
         public FilterTranxCtrl()
         {
             InitializeComponent();
 
-            //!FIX: save/load to/from file
-            FoodFilterList = new List<string>();
+            var FoodFilterList = new List<string>();
             FoodFilterList.Add("TRADER JOE");
             FoodFilterList.Add("WHOLEFDS");
             FoodFilterList.Add("SHAW S MARKET");
@@ -33,7 +29,7 @@ namespace ParseAndFilterTransactions
             FoodFilterList.Add("STOP & SHOP");
             FoodFilterList.Add("WEGMANS");
 
-            UtilityList = new List<string>();
+            var UtilityList = new List<string>();
             UtilityList.Add("TARGET");
             UtilityList.Add("STAPLES");
             UtilityList.Add("CVS PHARMACY");
@@ -44,21 +40,27 @@ namespace ParseAndFilterTransactions
             UtilityList.Add("TJMAXX");
             UtilityList.Add("T J MAXX");
 
-            AmazonList = new List<string>();
+            var AmazonList = new List<string>();
             AmazonList.Add("Amazon.com");
             AmazonList.Add("AMAZON COM");
             AmazonList.Add("AMAZON MKTPLACE");
             AmazonList.Add("AMZN MKTP");
             AmazonList.Add("AMZN Mktp");
 
-            GasList = new List<string>();
+            var GasList = new List<string>();
             GasList.Add("SUNOCO");
             GasList.Add("A-Z SERVICE");
             GasList.Add("SHELL OIL");
             GasList.Add("GULF OIL");
             GasList.Add("EXXONMOBIL");
 
-            PopulateListBox(listBox_Food, FoodFilterList);
+            GroupFilters = new Dictionary<FilterGroup, List<string>>();
+            GroupFilters.Add(FilterGroup.Food, FoodFilterList);
+            GroupFilters.Add(FilterGroup.Utility, UtilityList);
+            GroupFilters.Add(FilterGroup.Amazon, AmazonList);
+            GroupFilters.Add(FilterGroup.Gas, GasList);
+
+            PopulateListBox(listBox_Food, GroupFilters[FilterGroup.Food]);
             PopulateListBox(listBox_Utility, UtilityList);
             PopulateListBox(listBox_Gas, GasList);
             PopulateListBox(listBox_Amazon, AmazonList);
@@ -77,23 +79,23 @@ namespace ParseAndFilterTransactions
         {
             if (radioButton_Food.Checked)
             {
-                ParseTransactions.Filter(FoodFilterList);
-                ParseTransactions.OutputFileNameSuggestion_Filter = "Food";
+                ParseTransactions.Filter(GroupFilters[FilterGroup.Food]);
+                ParseTransactions.OutputFileNameSuggestion_Filter = FilterGroup.Food.ToString();
             }
             else if (radioButton_Utility.Checked)
             {
-                ParseTransactions.Filter(UtilityList);
-                ParseTransactions.OutputFileNameSuggestion_Filter = "Utility";
+                ParseTransactions.Filter(GroupFilters[FilterGroup.Utility]);
+                ParseTransactions.OutputFileNameSuggestion_Filter = FilterGroup.Utility.ToString();
             }
             else if (radioButton_Gas.Checked)
             {
-                ParseTransactions.Filter(GasList);
-                ParseTransactions.OutputFileNameSuggestion_Filter = "Gas";
+                ParseTransactions.Filter(GroupFilters[FilterGroup.Gas]);
+                ParseTransactions.OutputFileNameSuggestion_Filter = FilterGroup.Gas.ToString();
             }
             else if (radioButton_Amazon.Checked)
             {
-                ParseTransactions.Filter(AmazonList);
-                ParseTransactions.OutputFileNameSuggestion_Filter = "Amazon";
+                ParseTransactions.Filter(GroupFilters[FilterGroup.Amazon]);
+                ParseTransactions.OutputFileNameSuggestion_Filter = FilterGroup.Amazon.ToString();
             }
 
             label_TranxCount.Text = ParseTransactions.FilteredTransactions.Count.ToString();

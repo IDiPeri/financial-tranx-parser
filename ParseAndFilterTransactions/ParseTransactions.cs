@@ -64,7 +64,7 @@ namespace ParseAndFilterTransactions
                 //if ((line.Trim() != string.Empty) && (char.IsNumber(line.Trim()[0])))   //!FIX: quick silver starts with text
                 if ((line.Trim() != string.Empty) && !firstLine)
                 {
-                    string[] inputColumns = line.Split(',');
+                    string[] inputColumns = line.Split(',');    //!FIX: can't handle quote'd text with commas in it!
                     TransactionData data = new TransactionData(inputColumns, dataFormat);
                     int matches = (from d in AllLoadedTransactions
                                    where d.ToCSVFormat() == data.ToCSVFormat()

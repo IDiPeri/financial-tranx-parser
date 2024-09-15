@@ -22,7 +22,8 @@ namespace ParseAndFilterTransactions
 
         string path_CapitalOne360_Rev0 = @"C:\Users\israe\Documents\Financial\Transactions\Capital One 360\Rev0";
         string path_CapitalOne360_Rev1 = @"C:\Users\israe\Documents\Financial\Transactions\Capital One 360\Rev1";
-        int Current_CapitalOne360_Rev = 1;
+        string path_CapitalOne360_Rev2 = @"C:\Users\israe\Documents\Financial\Transactions\Capital One 360\Rev2";
+        int Current_CapitalOne360_Rev = 2;
 
         string path_Quicksilver_Rev0 = @"C:\Users\israe\Documents\Financial\Transactions\Quicksilver\Rev0";
         string path_Quicksilver_Rev1 = @"C:\Users\israe\Documents\Financial\Transactions\Quicksilver\Rev1";
@@ -36,9 +37,13 @@ namespace ParseAndFilterTransactions
             {
                 InitializeFileList(checkedListBox_CapitalOne360Files, path_CapitalOne360_Rev0);
             }
-            else
+            else if (Current_CapitalOne360_Rev == 1)
             {
                 InitializeFileList(checkedListBox_CapitalOne360Files, path_CapitalOne360_Rev1);
+            }
+            else
+            {
+                InitializeFileList(checkedListBox_CapitalOne360Files, path_CapitalOne360_Rev2);
             }
             if (Current_Quicksilver_Rev == 0)
             {
@@ -79,9 +84,13 @@ namespace ParseAndFilterTransactions
             {
                 duplicateCount += LoadFiles(checkedListBox_CapitalOne360Files, path_CapitalOne360_Rev0, DataFormat.CapitolOne360_Rev0);
             }
-            else
+            else if (Current_CapitalOne360_Rev == 1)
             {
                 duplicateCount += LoadFiles(checkedListBox_CapitalOne360Files, path_CapitalOne360_Rev1, DataFormat.CapitolOne360_Rev1);
+            }
+            else
+            {
+                duplicateCount += LoadFiles(checkedListBox_CapitalOne360Files, path_CapitalOne360_Rev2, DataFormat.CapitolOne360_Rev2);
             }
             if (Current_Quicksilver_Rev == 0)
             {
