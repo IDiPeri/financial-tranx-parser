@@ -21,6 +21,7 @@ namespace ParseAndFilterTransactions
         {
             InitializeComponent();
 
+            //!FIX: save/load to/from file
             FoodFilterList = new List<string>();
             FoodFilterList.Add("TRADER JOE");
             FoodFilterList.Add("WHOLEFDS");
