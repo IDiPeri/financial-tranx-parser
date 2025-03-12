@@ -1,0 +1,17 @@
+﻿<Window x:Class="QuickHomeExpenseSummarizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuickHomeExpenseSummarizer"
+        xmlns:local_v="clr-namespace:QuickHomeExpenseSummarizer.View"
+        xmlns:local_vm="clr-namespace:QuickHomeExpenseSummarizer.ViewModel"
+        xmlns:viewmodel="ExpenseSummarizerViewModel" d:DataContext="{d:DesignInstance Type=local_vm:ExpenseSummarizerViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <local_v:SettingsView DataContext="{Binding Settings}"/>
+        </StackPanel>
+    </Grid>
+</Window>
