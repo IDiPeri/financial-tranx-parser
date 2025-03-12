@@ -11,6 +11,18 @@
     <Grid>
         <StackPanel>
             <Label Content="Settings Control"/>
+            <StackPanel>
+                <Label Content="Source Folders"/>
+                <Button Content="Add Folder"
+                        Command="{Binding AddSourceFolderCommand}" />
+                <ItemsControl ItemsSource="{Binding SourceFolders}" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:SourceFolderSettingsView />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

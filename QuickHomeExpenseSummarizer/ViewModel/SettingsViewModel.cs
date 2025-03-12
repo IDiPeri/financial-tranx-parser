@@ -13,5 +13,12 @@ namespace QuickHomeExpenseSummarizer.ViewModel
     {
         [ObservableProperty]
         ObservableCollection<SourceFolderViewModel> sourceFolders = new();
+
+        [RelayCommand]
+        void AddSourceFolder()
+        {
+            SourceFolderViewModel newSourceFolder = new SourceFolderViewModel();
+            SourceFolders.Add(newSourceFolder);
+        }
     }
 }
