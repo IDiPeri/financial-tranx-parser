@@ -10,8 +10,13 @@ namespace QuickHomeExpenseSummarizer.ViewModel
 {
     public partial class SourceFolderViewModel : ObservableObject
     {
+        public SourceFolderViewModel(string folderPath)
+        {
+            FullFolderPath = folderPath;
+        }
+
         [ObservableProperty]
-        string fullFolderPath = "Alpha";
+        string fullFolderPath;
 
         // !FIX: collection of files
         //       refresh file list command

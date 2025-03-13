@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Win32;
 
 namespace QuickHomeExpenseSummarizer.ViewModel
 {
@@ -17,8 +18,13 @@ namespace QuickHomeExpenseSummarizer.ViewModel
         [RelayCommand]
         void AddSourceFolder()
         {
-            SourceFolderViewModel newSourceFolder = new SourceFolderViewModel();
-            SourceFolders.Add(newSourceFolder);
+            var dialog = new OpenFolderDialog();
+            var clickedOK = dialog.ShowDialog();
+            if (clickedOK == true)
+            {
+                SourceFolderViewModel newSourceFolder = new SourceFolderViewModel(dialog.FolderName);
+                SourceFolders.Add(newSourceFolder);
+            }
         }
     }
 }
