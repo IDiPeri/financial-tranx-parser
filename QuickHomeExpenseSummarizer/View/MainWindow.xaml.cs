@@ -1,4 +1,5 @@
 ﻿using QuickHomeExpenseSummarizer.ViewModel;
+using System.Dynamic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;

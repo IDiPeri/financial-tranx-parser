@@ -12,9 +12,12 @@ namespace QuickHomeExpenseSummarizer.ViewModel
     {
         public SourceFolderViewModel(string folderPath)
         {
+            //!FIX: take SourceFolderModel to init ourselves
             FullFolderPath = folderPath;
         }
 
+        //!FIX: how do I update model, SourceFolderModel.FullFolderPath? via internal events?
+        //!FIX: how do I initialize data since I may need to get it from the UI OR from the DB
         [ObservableProperty]
         string fullFolderPath;
 
