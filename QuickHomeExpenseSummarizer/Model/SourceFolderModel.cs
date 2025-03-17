@@ -8,10 +8,11 @@ namespace QuickHomeExpenseSummarizer.Model
 {
     public class SourceFolderModel
     {
-        public SourceFolderModel()
+        public SourceFolderModel(string folderPath)
         {
+            FullFolderPath = folderPath;
         }
 
-        public string FullFolderPath { get; set; } = string.Empty;
+        public string FullFolderPath { get; set; }
     }
 }

@@ -8,5 +8,11 @@ namespace QuickHomeExpenseSummarizer.Model
 {
     public class ExpenseSummarizerModel
     {
+        public ExpenseSummarizerModel()
+        {
+            Settings = new SettingsModel();
+        }
+
+        public SettingsModel Settings { get; }
     }
 }

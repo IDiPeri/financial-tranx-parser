@@ -15,6 +15,11 @@ namespace QuickHomeExpenseSummarizer.Model
     {
         public SettingsModel()
         {
+            SourceFolders = new();
+
+            //!FIX: if DB exists load here otherwise do nothing
         }
+
+        public List<SourceFolderModel> SourceFolders;
     }
 }
