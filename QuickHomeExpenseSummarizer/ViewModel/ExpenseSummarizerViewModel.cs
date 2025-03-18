@@ -14,6 +14,8 @@ namespace QuickHomeExpenseSummarizer.ViewModel
     {
         public ExpenseSummarizerViewModel()
         {
+            // USING "Code First" approach for entity framework
+
             //!FIX: to communicate StrongReferenceMessenger.Default.Send()
             //      with other decoupled view models
             // https://youtu.be/omo1kzRGK_M?t=1893

@@ -44,12 +44,21 @@ namespace QuickHomeExpenseSummarizer.ViewModel
             var clickedOK = dialog.ShowDialog();
             if (clickedOK == true)
             {
+#if false   //!FIX: migrate code
+                //!FIX: we need to pass data context to model c'tor BUT view model shouldn't be coupled to the
+                // data context and entity framework objects.
+                // SOLUTION:
+                // 1) add public method to settings view model to add folder
+                // 2) add public method to settings model to add folder which implicitly passes data context
                 SourceFolderModel sourceFolderModel = new SourceFolderModel(dialog.FolderName);
 
                 //!FIX: create new SourceFolderModel and init SourceFolderViewModel from it
                 // keep our collection of models up to date.
                 SourceFolderViewModel newSourceFolder = new SourceFolderViewModel(sourceFolderModel);
                 SourceFolders.Add(newSourceFolder);
+#else
+                AddSourceFolder(dialog.FolderName);
+#endif
                 ValidateAllProperties();
 
                 if (HasErrors)
@@ -61,6 +70,14 @@ namespace QuickHomeExpenseSummarizer.ViewModel
                      */
                 }
             }
+        }
+
+        public SourceFolderViewModel AddSourceFolder(string folderPath)
+        {
+            SourceFolderModel sourceFolderModel = model.AddSourceFolder(folderPath);
+            SourceFolderViewModel sourceFolderViewModel = new SourceFolderViewModel(sourceFolderModel);
+            SourceFolders.Add(sourceFolderViewModel);
+            return sourceFolderViewModel;
         }
     }
 }
