@@ -11,12 +11,12 @@ namespace QuickHomeExpenseSummarizer.ViewModel
 {
     public partial class SourceFolderViewModel : ObservableObject
     {
-        public SourceFolderViewModel(SourceFolderModel sourceFolderModel, string folderPath)
+        public SourceFolderViewModel(SourceFolderModel sourceFolderModel)
         {
             model = sourceFolderModel;
 
             //!FIX: take SourceFolderModel to init ourselves
-            FullFolderPath = folderPath;
+            FullFolderPath = model.FullFolderPath;
         }
 
         private SourceFolderModel model;

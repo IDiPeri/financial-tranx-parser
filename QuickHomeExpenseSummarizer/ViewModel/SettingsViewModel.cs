@@ -48,8 +48,7 @@ namespace QuickHomeExpenseSummarizer.ViewModel
 
                 //!FIX: create new SourceFolderModel and init SourceFolderViewModel from it
                 // keep our collection of models up to date.
-                SourceFolderViewModel newSourceFolder = new SourceFolderViewModel(sourceFolderModel,
-                                                                                  dialog.FolderName);
+                SourceFolderViewModel newSourceFolder = new SourceFolderViewModel(sourceFolderModel);
                 SourceFolders.Add(newSourceFolder);
                 ValidateAllProperties();
 
