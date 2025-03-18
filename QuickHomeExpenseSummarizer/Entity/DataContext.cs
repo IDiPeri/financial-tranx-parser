@@ -54,5 +54,15 @@ namespace QuickHomeExpenseSummarizer.Entity
         {
             options.UseSqlite($"Data Source={DbPath}");
         }
+
+        //!FIX: https://stackoverflow.com/questions/49592274/how-to-create-autoincrement-column-in-sqlite-using-ef-core
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Explicitly tell it to generate a new value when it's added (code-first approach)
+            modelBuilder.Entity<SourceFolder>()
+                .Property(e => e.SourceFolderId)
+                .ValueGeneratedOnAdd();
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace QuickHomeExpenseSummarizer.Entity
     {
         //!FIX: [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Key, Required]   // from https://youtu.be/defBg85T8AU?t=411
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // from https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#explicitly-configuring-value-generation
         public int SourceFolderId { get; set; }
         public string Name { get; set; } = string.Empty;
     }

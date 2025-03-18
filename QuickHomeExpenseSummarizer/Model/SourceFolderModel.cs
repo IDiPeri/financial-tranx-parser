@@ -17,7 +17,8 @@ namespace QuickHomeExpenseSummarizer.Model
 
             //!FIX: how do we get a unique Id?
             // SourceFolderId is auto set when SaveChanges() is called because of DatabaseGenerated attribute
-            _sourceFolderEntity = new SourceFolder{ SourceFolderId = 1, Name = folderPath };
+            //_sourceFolderEntity = new SourceFolder{ SourceFolderId = 1, Name = folderPath };
+            _sourceFolderEntity = new SourceFolder { Name = folderPath };
             _dataContext.SourceFolders.Add(_sourceFolderEntity);
             int writeCount = _dataContext.SaveChanges();
         }
