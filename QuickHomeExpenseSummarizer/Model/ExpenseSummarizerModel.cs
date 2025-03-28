@@ -13,6 +13,7 @@ namespace QuickHomeExpenseSummarizer.Model
         public ExpenseSummarizerModel()
         {
             _dataContext = new();
+
             //!FIX: do I want to do this? how are NEW migration tables created / added to an old db?
             //dataContext.Database.Migrate();
             Settings = new SettingsModel(_dataContext);

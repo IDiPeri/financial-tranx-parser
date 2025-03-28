@@ -25,6 +25,11 @@ namespace QuickHomeExpenseSummarizer.ViewModel
             sourceFolders = new();
 
             //!FIX: init sourceFolders with model.SourceFolders
+            foreach (var sourceFolderModel in model.SourceFolders)
+            {
+                SourceFolderViewModel sourceFolderViewModel = new SourceFolderViewModel(sourceFolderModel);
+                SourceFolders.Add(sourceFolderViewModel);
+            }
         }
 
         private SettingsModel model;
