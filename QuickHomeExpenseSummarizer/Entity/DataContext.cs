@@ -12,6 +12,7 @@ namespace QuickHomeExpenseSummarizer.Entity
     public class DataContext : DbContext
     {
         public DbSet<SourceFolder> SourceFolders { get; set; }
+        public DbSet<FilterCategory> Categories { get; set; }
 
         public DataContext()
         {
@@ -62,6 +63,22 @@ namespace QuickHomeExpenseSummarizer.Entity
             modelBuilder.Entity<SourceFolder>()
                 .Property(e => e.SourceFolderId)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<FilterCategory>()
+                .Property(e => e.FilterCategoryId)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<CategoryItem>()
+                .Property(e => e.CategoryItemId)
+                .ValueGeneratedOnAdd();
+
+            //!FIX: https://youtu.be/CHBKouYSp2c?t=205
+            //if I wanted to manually change the names of the FK columns
+            /*
+            modelBuilder.Entity<FilterCategory>()
+                .HasMany(c => c.Items)
+                .WithOne(i => i.FilterCategory)
+                .HasForeignKey(i => i.FilterCategoryId);
+            */
+
             base.OnModelCreating(modelBuilder);
         }
     }
