@@ -11,10 +11,10 @@
     <Grid>
         <StackPanel>
             <Label Content="Settings Control"
-                   Foreground="White"/>
+                   Style="{StaticResource DefaultLabelStyle}"/>
             <StackPanel>
                 <Label Content="Source Folders"
-                       Foreground="White"/>
+                       Style="{StaticResource DefaultLabelStyle}"/>
                 <Button Content="Add Folder"
                         Command="{Binding AddSourceFolderCommand}" />
                 <ItemsControl ItemsSource="{Binding SourceFolders}" >

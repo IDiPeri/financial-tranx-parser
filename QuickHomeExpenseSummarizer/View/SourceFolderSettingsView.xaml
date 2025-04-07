@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel>
             <Label Content="{Binding FullFolderPath, FallbackValue='fullpath'}"
-                   Foreground="White"/>
+                   Style="{StaticResource DefaultLabelStyle}"/>
         </StackPanel>
     </Grid>
 </UserControl>
