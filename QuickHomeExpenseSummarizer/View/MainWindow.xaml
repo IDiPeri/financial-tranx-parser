@@ -8,8 +8,20 @@
         xmlns:local_vm="clr-namespace:QuickHomeExpenseSummarizer.ViewModel"
         xmlns:viewmodel="ExpenseSummarizerViewModel" d:DataContext="{d:DesignInstance Type=local_vm:ExpenseSummarizerViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent">
     <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,2"
+                                     EndPoint="1,1">
+                    <GradientStop Color="#696969" Offset="0.1"/>
+                    <GradientStop Color="#D3D3D3" Offset="1.75"/>
+                    <GradientStop Color="#9E9E9E" Offset="2.25"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
         <StackPanel Orientation="Vertical">
             <local_v:SettingsView DataContext="{Binding Settings}"/>
         </StackPanel>
