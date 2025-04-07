@@ -10,7 +10,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label Content="{Binding FullFolderPath, FallbackValue='fullpath'}"/>
+            <Label Content="{Binding FullFolderPath, FallbackValue='fullpath'}"
+                   Foreground="White"/>
         </StackPanel>
     </Grid>
 </UserControl>

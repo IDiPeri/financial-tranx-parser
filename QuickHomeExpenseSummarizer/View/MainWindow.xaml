@@ -14,11 +14,10 @@
     <Grid>
         <Border>
             <Border.Background>
-                <LinearGradientBrush StartPoint="0,2"
+                <LinearGradientBrush StartPoint="0,0"
                                      EndPoint="1,1">
-                    <GradientStop Color="#696969" Offset="0.1"/>
-                    <GradientStop Color="#D3D3D3" Offset="1.75"/>
-                    <GradientStop Color="#9E9E9E" Offset="2.25"/>
+                    <GradientStop Color="#271A2A" Offset="0.0"/>
+                    <GradientStop Color="#1A2227" Offset="1.0"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>

@@ -10,9 +10,11 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label Content="Settings Control"/>
+            <Label Content="Settings Control"
+                   Foreground="White"/>
             <StackPanel>
-                <Label Content="Source Folders"/>
+                <Label Content="Source Folders"
+                       Foreground="White"/>
                 <Button Content="Add Folder"
                         Command="{Binding AddSourceFolderCommand}" />
                 <ItemsControl ItemsSource="{Binding SourceFolders}" >
