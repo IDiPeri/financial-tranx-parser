@@ -15,10 +15,11 @@
             <StackPanel>
                 <Label Content="Source Folders"
                        Style="{StaticResource DefaultLabelStyle}"/>
-                <Button Style="{StaticResource AButton}"
-                        Content="Add Folder"
-                        Command="{Binding AddSourceFolderCommand}">
+                <Button Style="{DynamicResource AButton}"
+                        Command="{Binding AddSourceFolderCommand}"
+                        Content="Add Folder">
                 </Button>
+                <!-- !FIX: why doesn't button content show up but it does here? https://youtu.be/9pibnF9KxTU?t=1524 -->
                 <ItemsControl ItemsSource="{Binding SourceFolders}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
