@@ -16,7 +16,8 @@
                 <Label Content="Source Folders"
                        Style="{StaticResource DefaultLabelStyle}"/>
                 <Button Content="Add Folder"
-                        Command="{Binding AddSourceFolderCommand}" />
+                        Command="{Binding AddSourceFolderCommand}" Height="20">
+                </Button>
                 <ItemsControl ItemsSource="{Binding SourceFolders}" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
