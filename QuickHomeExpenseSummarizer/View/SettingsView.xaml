@@ -15,8 +15,9 @@
             <StackPanel>
                 <Label Content="Source Folders"
                        Style="{StaticResource DefaultLabelStyle}"/>
-                <Button Content="Add Folder"
-                        Command="{Binding AddSourceFolderCommand}" Height="20">
+                <Button Style="{StaticResource AButton}"
+                        Content="Add Folder"
+                        Command="{Binding AddSourceFolderCommand}">
                 </Button>
                 <ItemsControl ItemsSource="{Binding SourceFolders}" >
                     <ItemsControl.ItemTemplate>
