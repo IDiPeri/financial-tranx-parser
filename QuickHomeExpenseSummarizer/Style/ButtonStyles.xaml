@@ -16,12 +16,14 @@
     <Style x:Key="AButton" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Width" Value="200"/>
+        <Setter Property="Foreground" Value="White"/>
+        <!-- !FIX: share static resource DefaultLabelStyle's color somewhere here too -->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="border"
-                            CornerRadius="10"
-                            BorderThickness="2"
+                            CornerRadius="4"
+                            BorderThickness="1"
                             BorderBrush="#FF434343"
                             Background="{StaticResource BtnAPas}">
                         <Grid>
@@ -48,46 +50,4 @@
     </Style>
     <!-- #endregion -->
 
-    <!-- example: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/button-styles-and-templates?view=netframeworkdesktop-4.8 -->
-    <Style x:Key="CButton" TargetType="Button">
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Width" Value="200"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <!-- 
-                    <Border x:Name="border"
-                            CornerRadius="10"
-                            BorderThickness="2"
-                            BorderBrush="#FF434343"
-                            Background="{StaticResource BtnAPas}"/>
-                    -->
-                    <!-- 
-                    example: https://stackoverflow.com/questions/17630968/wpf-c-sharp-button-style
-                    -->
-                    <Border x:Name="border"
-                            CornerRadius="10"
-                            BorderThickness="2"
-                            BorderBrush="#FF434343"
-                            Background="{StaticResource BtnAPas}">
-                        <Grid>
-                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
-                        </Grid>
-                    </Border>
-                    <!--
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource BtnAAct}"/>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderThickness" TargetName="border" Value="3"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="#FFFFFF"/>
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource BtnAAct}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                    -->
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 </ResourceDictionary>

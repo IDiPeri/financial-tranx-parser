@@ -3,6 +3,9 @@
 
     <Style x:Key="DefaultLabelStyle" TargetType="Label">
         <Setter Property="Foreground" Value="White" />
+        <!-- !FIX: share static resource color somewhere here too 
+        <Color x:Key="WindowColor">#FFE8EDF9</Color>
+        -->
     </Style>
 
 </ResourceDictionary>
